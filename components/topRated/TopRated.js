@@ -16,14 +16,14 @@ const TopRated = ({ topRated }) => {
         spaceBetween={0}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }}
         className={css.swiper_container}
       >
-        <div class="swiper-wrapper">
+        <div className="swiper-wrapper">
           {topRated.map((product) => {
             return (
-              <SwiperSlide className={css.swiper_slide}>
+              <SwiperSlide key={product.id} className={css.swiper_slide}>
                 <ProductCard product={product} />
               </SwiperSlide>
             );

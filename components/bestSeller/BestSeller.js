@@ -17,14 +17,14 @@ const BestSeller = ({ bestSellers }) => {
         spaceBetween={0}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }}
         className={css.swiper_container}
       >
-        <div class="swiper-wrapper">
+        <div className="swiper-wrapper">
           {bestSellers.map((product) => {
             return (
-              <SwiperSlide className={css.swiper_slide}>
+              <SwiperSlide key={product.id} className={css.swiper_slide}>
                 <ProductCard product={product} />
               </SwiperSlide>
             );
