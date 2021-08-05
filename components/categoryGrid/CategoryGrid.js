@@ -38,7 +38,7 @@ const CategoryGrid = ({ allCategories }) => {
       <Grid container spacing={1}>
         {allCategories.map((category, index) => {
           return (
-            <Grid key={index} item xs="6" sm="4">
+            <Grid key={index} item xs={6} sm={4}>
               <Paper className={classes.paper}>
                 <Image src={Item} alt={category} />
                 {category}

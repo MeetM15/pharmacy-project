@@ -23,7 +23,7 @@ const Search = ({ products }) => {
             InputProps={{
               ...params.InputProps,
               type: "search",
-              endAdornment: (
+              startAdornment: (
                 <InputAdornment position="end">
                   <SearchRounded />
                 </InputAdornment>
