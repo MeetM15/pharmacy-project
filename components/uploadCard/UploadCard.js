@@ -7,15 +7,15 @@ import PublishRoundedIcon from "@material-ui/icons/PublishRounded";
 
 const useStyles = makeStyles({
   root: {
-    width: "90%",
+    width: "95%",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     margin: "10px"
   },
   content: {
-    fontSize: "16px",
-    fontWeight: "600"
+    fontSize: "20px",
+    fontWeight: "500"
   },
   upload_hide: {
     display: "none"

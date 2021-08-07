@@ -14,7 +14,7 @@ const HomeNavBar = ({ products }) => {
       <section className={css.nav_top}>
         <Link href="/">
           <p className={css.logo}>
-            <LocalHospitalIcon style={{ color: "#960200" }} />
+            <LocalHospitalIcon style={{ color: "#DB162F" }} />
             MedMart
           </p>
         </Link>
@@ -25,8 +25,11 @@ const HomeNavBar = ({ products }) => {
             ) : (
               <Button
                 variant="contained"
-                size={"small"}
-                style={{ backgroundColor: "#058ED9", color: "white" }}
+                size="small"
+                style={{
+                  backgroundColor: "#E6FDFF",
+                  color: "black"
+                }}
               >
                 Login
               </Button>
@@ -34,7 +37,7 @@ const HomeNavBar = ({ products }) => {
           </div>
           <div className={css.cart}>
             <Button>
-              <ShoppingCartOutlined style={{ color: "#111D4A" }} />
+              <ShoppingCartOutlined style={{ color: "#FE9000" }} />
             </Button>
           </div>
         </article>

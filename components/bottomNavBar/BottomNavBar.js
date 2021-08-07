@@ -20,7 +20,8 @@ const BottomNavBar = () => {
         bottom: "0",
         left: "0",
         right: "0",
-        width: "100%"
+        width: "100%",
+        zIndex: "10"
       }}
     >
       <Paper elevation={10}>

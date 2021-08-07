@@ -14,14 +14,14 @@ const BestSeller = ({ bestSellers }) => {
       <h3 style={{ fontSize: "32px", margin: "5px 20px" }}>Best Sellers</h3>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={0}
+        spaceBetween={10}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         }}
         className={css.swiper_container}
       >
-        <div className="swiper-wrapper">
+        <div>
           {bestSellers.map((product) => {
             return (
               <SwiperSlide key={product.id} className={css.swiper_slide}>

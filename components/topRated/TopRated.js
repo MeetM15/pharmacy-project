@@ -10,17 +10,17 @@ SwiperCore.use([Pagination, Autoplay]);
 const TopRated = ({ topRated }) => {
   return (
     <div className={css.main_container}>
-      <h3 style={{ fontSize: "32px", margin: "5px 20px" }}>Best Sellers</h3>
+      <h3 style={{ fontSize: "32px", margin: "5px 20px" }}>Top Rated</h3>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={0}
+        spaceBetween={10}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         }}
         className={css.swiper_container}
       >
-        <div className="swiper-wrapper">
+        <div>
           {topRated.map((product) => {
             return (
               <SwiperSlide key={product.id} className={css.swiper_slide}>
