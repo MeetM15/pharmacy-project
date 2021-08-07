@@ -24,7 +24,7 @@ const truncate = (input) => {
   return input.length > 25 ? `${input.substring(0, 25)}...` : input;
 };
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ img, title }) => {
   const classes = useStyles();
 
   return (
@@ -33,23 +33,11 @@ const ProductCard = ({ product }) => {
         <CardMedia
           className={classes.media}
           style={{ height: "0", paddingTop: "80%" }}
-          image={product.image}
+          image={img}
           title="Best Seller Product"
         />
         <CardContent className={classes.content}>
-          <p style={{ margin: "0" }}>{truncate(product.title)}</p>
-          <p style={{ margin: "0" }}>
-            ${product.price}
-            <p
-              style={{
-                textDecoration: "line-through",
-                color: "#696969",
-                margin: "0"
-              }}
-            >
-              {"$" + (product.price + 0.2 * product.price).toFixed(2)}
-            </p>
-          </p>
+          <p style={{ margin: "0" }}>{truncate(title)}</p>
         </CardContent>
       </CardActionArea>
     </Card>

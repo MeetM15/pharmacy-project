@@ -5,12 +5,20 @@ import css from "./toprated.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay } from "swiper/core";
 import ProductCard from "../productCard/ProductCard";
+import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
+
 SwiperCore.use([Pagination, Autoplay]);
 
-const TopRated = ({ topRated }) => {
+const TopRated = () => {
   return (
     <div className={css.main_container}>
-      <h3 style={{ fontSize: "32px", margin: "5px 20px" }}>Top Rated</h3>
+      <div className={css.head}>
+        <p>Top Rated</p>
+        <a href="#" className={css.viewLink}>
+          View All
+          <DoubleArrowIcon size="small" />
+        </a>
+      </div>
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={10}
@@ -21,13 +29,42 @@ const TopRated = ({ topRated }) => {
         className={css.swiper_container}
       >
         <div>
-          {topRated.map((product) => {
-            return (
-              <SwiperSlide key={product.id} className={css.swiper_slide}>
-                <ProductCard product={product} />
-              </SwiperSlide>
-            );
-          })}
+          <SwiperSlide className={css.swiper_slide}>
+            <ProductCard
+              img="https://www.netmeds.com/images/category/553/thumb/Hair_Treatment_1.jpg"
+              title="Hair Treatment"
+            />
+          </SwiperSlide>
+          <SwiperSlide className={css.swiper_slide}>
+            <ProductCard
+              img="https://www.netmeds.com/images/category/3495/thumb/face-wash-cleansers_1.jpg"
+              title="Face Wash"
+            />
+          </SwiperSlide>
+          <SwiperSlide className={css.swiper_slide}>
+            <ProductCard
+              img="https://www.netmeds.com/images/category/549/thumb/Hair-colours_2.jpg"
+              title="Hair Colours"
+            />
+          </SwiperSlide>
+          <SwiperSlide className={css.swiper_slide}>
+            <ProductCard
+              img="https://www.netmeds.com/images/category/100/thumb/Mens_Care_2.jpg"
+              title="Men's Care"
+            />
+          </SwiperSlide>
+          <SwiperSlide className={css.swiper_slide}>
+            <ProductCard
+              img="https://www.netmeds.com/images/category/525/thumb/Body_Care_4.jpg"
+              title="Body Care"
+            />
+          </SwiperSlide>
+          <SwiperSlide className={css.swiper_slide}>
+            <ProductCard
+              img="https://www.netmeds.com/images/category/569/thumb/skin-care_2.jpg"
+              title="Skin Care"
+            />
+          </SwiperSlide>
         </div>
       </Swiper>
     </div>

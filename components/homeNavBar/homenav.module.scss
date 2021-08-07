@@ -10,13 +10,13 @@ $lgrey:#E7E6EA;
   left:0;
   right:0;
   width: 100%;
-  z-index: 2;
+  z-index: 10;
   background-color: white;
 }
 .nav_top {
   display: flex;
-  height: 45px;
   padding: 0px 10px;
+  height: 45px;
   justify-content: space-between;
   align-items: center;
 }

@@ -1,12 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import OpacityRoundedIcon from "@material-ui/icons/OpacityRounded";
-import FavoriteTwoTone from "@material-ui/icons/FavoriteTwoTone";
-import FitnessCenterRoundedIcon from "@material-ui/icons/FitnessCenterRounded";
-import ChildFriendlyRoundedIcon from "@material-ui/icons/ChildFriendlyRounded";
-import HouseRoundedIcon from "@material-ui/icons/HouseRounded";
-import Button from "@material-ui/core/Button";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 
 const useStyles = makeStyles((theme) => ({

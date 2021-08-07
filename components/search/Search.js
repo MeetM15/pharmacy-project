@@ -6,13 +6,13 @@ import FormControl from "@material-ui/core/FormControl";
 import { SearchRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  input: {
     height: "40px",
     backgroundColor: "#F3F7FB"
   },
   form: {
     width: "100%",
-    padding: "0px 10px"
+    padding: "5px 10px"
   }
 }));
 
@@ -22,7 +22,7 @@ const Search = ({ products }) => {
     <div className={css.search}>
       <FormControl className={classes.form}>
         <OutlinedInput
-          className={classes.root}
+          className={classes.input}
           id="input-with-icon-adornment"
           margin="none"
           startAdornment={

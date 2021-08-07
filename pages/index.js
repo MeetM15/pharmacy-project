@@ -16,8 +16,8 @@ export default function IndexPage({ products, bestSellers, topRated }) {
     <Layout products={products}>
       <UploadCard />
       <CategoryGrid />
-      <BestSeller bestSellers={bestSellers} />
-      <TopRated topRated={topRated} />
+      <BestSeller />
+      <TopRated />
       <Footer />
     </Layout>
   );

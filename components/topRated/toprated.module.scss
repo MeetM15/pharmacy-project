@@ -2,12 +2,28 @@
   display: flex;
   flex-direction: column;
   padding: 10px 0px;
-  height: 350px;
+  height: 250px;
   width: 100%;
-  background-color: white;
+  background: #f3f7fb;
   margin-top: 10px;
 }
-
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  align-items: center;
+  padding: 0px 10px;
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+.viewLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #EE4681;
+}
 .swiper_slide img {
   display: block;
   width: 100%;
