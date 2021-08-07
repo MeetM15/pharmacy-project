@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     margin: "10px"
   },
   content: {
-    fontSize: "20px",
+    fontSize: "16px",
     fontWeight: "500"
   },
   upload_hide: {
@@ -23,7 +23,9 @@ const useStyles = makeStyles({
   upload_btn: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    backgroundColor: "#10ABBF",
+    color: "white"
   }
 });
 
@@ -46,7 +48,6 @@ const UploadCard = () => {
         <label htmlFor="upload_input">
           <Button
             variant="contained"
-            color="primary"
             component="span"
             size="small"
             className={classes.upload_btn}

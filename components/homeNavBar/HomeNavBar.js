@@ -27,8 +27,8 @@ const HomeNavBar = ({ products }) => {
                 variant="contained"
                 size="small"
                 style={{
-                  backgroundColor: "#E6FDFF",
-                  color: "black"
+                  backgroundColor: "#24AEB1",
+                  color: "WHITE"
                 }}
               >
                 Login
@@ -37,7 +37,7 @@ const HomeNavBar = ({ products }) => {
           </div>
           <div className={css.cart}>
             <Button>
-              <ShoppingCartOutlined style={{ color: "#FE9000" }} />
+              <ShoppingCartOutlined style={{ color: "black" }} />
             </Button>
           </div>
         </article>
