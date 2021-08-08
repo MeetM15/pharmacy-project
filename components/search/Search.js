@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Search = ({ products }) => {
+const Search = () => {
   const classes = useStyles();
   return (
     <div className={css.search}>

@@ -3,7 +3,7 @@ import HomeNavBar from "../homeNavBar/HomeNavBar";
 import BottomNavBar from "../bottomNavBar/BottomNavBar";
 import css from "./layout.module.scss";
 
-const Layout = ({ children, products }) => {
+const Layout = ({ children }) => {
   return (
     <div className={css.layout}>
       <Head>
@@ -15,7 +15,7 @@ const Layout = ({ children, products }) => {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>
-      <HomeNavBar products={products} />
+      <HomeNavBar />
       <div className={css.child}>{children}</div>
       <BottomNavBar />
     </div>

@@ -7,7 +7,7 @@ import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import Search from "../search/Search";
 
-const HomeNavBar = ({ products }) => {
+const HomeNavBar = () => {
   const [auth, setAuth] = useState(false);
   return (
     <div className={css.nav_container}>
@@ -22,18 +22,22 @@ const HomeNavBar = ({ products }) => {
           <article className={css.icons}>
             <div className={css.account}>
               {auth ? (
-                <AccountCircleIcon />
+                <Link href="/">
+                  <AccountCircleIcon />
+                </Link>
               ) : (
-                <Button
-                  variant="contained"
-                  size="small"
-                  style={{
-                    backgroundColor: "#24AEB1",
-                    color: "WHITE"
-                  }}
-                >
-                  Login
-                </Button>
+                <Link href="/login">
+                  <Button
+                    variant="contained"
+                    size="small"
+                    style={{
+                      backgroundColor: "#24AEB1",
+                      color: "WHITE"
+                    }}
+                  >
+                    Login
+                  </Button>
+                </Link>
               )}
             </div>
             <div className={css.cart}>
@@ -44,7 +48,7 @@ const HomeNavBar = ({ products }) => {
           </article>
         </section>
         <section className={css.search_bar}>
-          <Search products={products} />
+          <Search />
         </section>
       </Paper>
     </div>
