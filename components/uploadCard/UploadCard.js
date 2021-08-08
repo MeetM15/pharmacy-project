@@ -7,7 +7,7 @@ import PublishRoundedIcon from "@material-ui/icons/PublishRounded";
 
 const useStyles = makeStyles({
   root: {
-    width: "95%",
+    width: "98%",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",

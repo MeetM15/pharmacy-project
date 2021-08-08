@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "Center",
     textAlign: "center",
-    fontSize: "18px",
+    justifyContent: "space-between",
+    fontSize: "clamp(16px,2vw,24px)",
     fontWeight: "500",
-    height: "220px",
+    height: "100%",
     width: "100%",
     cursor: "pointer",
     "& span": {
@@ -29,9 +30,6 @@ const useStyles = makeStyles((theme) => ({
       }
     }
   },
-  icon: {
-    fontSize: "60px"
-  },
   head: {
     display: "flex",
     justifyContent: "space-between",
@@ -39,14 +37,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     "& p": {
       margin: "0",
-      fontSize: "1.2rem"
+      fontSize: "clamp(18px,4vw,28px)",
+      fontWeight: "bold"
     }
   },
   viewLink: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    color: "#EE4681"
+    color: "#EE4681",
+    fontSize: "18px",
+    fontWeight: "bold"
   }
 }));
 
@@ -62,7 +63,7 @@ const CategoryGrid = () => {
         </a>
       </div>
       <Grid container spacing={2}>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={3} md={2}>
           <Paper className={classes.paper}>
             <span>
               <img
@@ -73,7 +74,7 @@ const CategoryGrid = () => {
             Pharmacy
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={3} md={2}>
           <Paper className={classes.paper}>
             <span>
               <img
@@ -84,7 +85,7 @@ const CategoryGrid = () => {
             Personal Care
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={3} md={2}>
           <Paper className={classes.paper}>
             <span>
               <img
@@ -95,7 +96,7 @@ const CategoryGrid = () => {
             Health and Nutrition
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={3} md={2}>
           <Paper className={classes.paper}>
             <span>
               <img
@@ -106,7 +107,7 @@ const CategoryGrid = () => {
             Baby Care
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={3} md={2}>
           <Paper className={classes.paper}>
             <span>
               <img
@@ -117,7 +118,7 @@ const CategoryGrid = () => {
             Surgical Equipments
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={3} md={2}>
           <Paper className={classes.paper}>
             <span>
               <img
