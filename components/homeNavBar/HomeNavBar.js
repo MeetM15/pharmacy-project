@@ -16,7 +16,7 @@ const HomeNavBar = () => {
           <Link href="/">
             <p className={css.logo}>
               <LocalHospitalIcon style={{ color: "#DB162F" }} />
-              MedMart
+              Dsquare
             </p>
           </Link>
           <article className={css.icons}>
