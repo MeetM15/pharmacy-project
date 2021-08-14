@@ -20,13 +20,6 @@ const useStyles = makeStyles({
   },
   upload_hide: {
     display: "none"
-  },
-  upload_btn: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#10ABBF",
-    color: "white"
   }
 });
 
@@ -51,10 +44,10 @@ const UploadCard = () => {
             variant="contained"
             component="span"
             size="small"
-            className={classes.upload_btn}
+            color="primary"
+            endIcon={<PublishRoundedIcon />}
           >
             Upload
-            <PublishRoundedIcon />
           </Button>
         </label>
       </CardActions>

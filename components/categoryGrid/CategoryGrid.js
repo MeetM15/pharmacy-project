@@ -5,7 +5,7 @@ import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import { Data } from "../../data/categories/Data";
 import Link from "next/link";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
     display: "flex",
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    color: "#EE4681",
+    color: "#FF4000",
     fontSize: "18px",
     fontWeight: "bold"
   }
