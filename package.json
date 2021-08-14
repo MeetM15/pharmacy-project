@@ -14,7 +14,7 @@
     "@material-ui/lab": "4.0.0-alpha.60",
     "eslint": "7.32.0",
     "material-ui-phone-number": "2.2.6",
-    "next": "^11.1.0",
+    "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-phone-input-2": "2.14.0",
