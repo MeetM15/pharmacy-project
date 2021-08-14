@@ -34,7 +34,7 @@ const ProductCard = ({ img, title }) => {
           className={classes.media}
           style={{ height: "0", paddingTop: "80%" }}
           image={img}
-          title="Best Seller Product"
+          title={title}
         />
         <CardContent className={classes.content}>
           <p style={{ margin: "0" }}>{truncate(title)}</p>

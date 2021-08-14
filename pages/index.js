@@ -1,4 +1,3 @@
-//import Link from 'next/link'
 import UploadCard from "../components/uploadCard/UploadCard";
 import Layout from "../components/layout/Layout";
 import CategoryGrid from "../components/categoryGrid/CategoryGrid";

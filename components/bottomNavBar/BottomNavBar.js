@@ -7,6 +7,7 @@ import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import AppsRoundedIcon from "@material-ui/icons/AppsRounded";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import { useState } from "react";
+import Link from "next/link";
 
 const BottomNavBar = () => {
   const [menuValue, setMenuValue] = useState("home");
@@ -26,18 +27,24 @@ const BottomNavBar = () => {
     >
       <Paper elevation={10}>
         <BottomNavigation showLabels value={menuValue} onChange={handleChange}>
-          <BottomNavigationAction
-            label="Categories"
-            icon={<AppsRoundedIcon style={{ color: "black" }} />}
-          />
-          <BottomNavigationAction
-            label="Home"
-            icon={<HomeRoundedIcon style={{ color: "black" }} />}
-          />
-          <BottomNavigationAction
-            label="Menu"
-            icon={<MenuRoundedIcon style={{ color: "black" }} />}
-          />
+          <Link href="/">
+            <BottomNavigationAction
+              label="Categories"
+              icon={<AppsRoundedIcon style={{ color: "black" }} />}
+            />
+          </Link>
+          <Link href="/">
+            <BottomNavigationAction
+              label="Home"
+              icon={<HomeRoundedIcon style={{ color: "black" }} />}
+            />
+          </Link>
+          <Link href="/">
+            <BottomNavigationAction
+              label="Menu"
+              icon={<MenuRoundedIcon style={{ color: "black" }} />}
+            />
+          </Link>
         </BottomNavigation>
       </Paper>
     </div>

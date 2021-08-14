@@ -2,6 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
+import { Data } from "../../data/categories/Data";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,72 +65,26 @@ const CategoryGrid = () => {
         </a>
       </div>
       <Grid container spacing={2}>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <span>
-              <img
-                src="https://www.netmeds.com/images/category/624/thumb/treatments_0.jpg"
-                alt="Pharmacy"
-              />
-            </span>
-            Pharmacy
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <span>
-              <img
-                src="https://www.netmeds.com/images/category/524/thumb/Beauty_personal_care_1.jpg"
-                alt="Pharmacy"
-              />
-            </span>{" "}
-            Personal Care
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <span>
-              <img
-                src="https://www.netmeds.com/images/category/481/thumb/ayush_0.jpg"
-                alt="Pharmacy"
-              />
-            </span>
-            Health and Nutrition
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <span>
-              <img
-                src="https://www.netmeds.com/images/category/3085/thumb/Mom_baby_1.jpg"
-                alt="Pharmacy"
-              />
-            </span>
-            Baby Care
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <span>
-              <img
-                src="https://www.netmeds.com/images/category/3081/thumb/surgical_0.jpg"
-                alt="Pharmacy"
-              />
-            </span>
-            Surgical Equipments
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <span>
-              <img
-                src="https://www.netmeds.com/images/category/665/thumb/devices_0.jpg"
-                alt="Pharmacy"
-              />
-            </span>
-            Devices
-          </Paper>
-        </Grid>
+        {Data.map((category, index) => {
+          return (
+            <Link
+              key={index}
+              href={{
+                pathname: `/${category.name}`,
+                query: { categoryName: `${category.name}` }
+              }}
+            >
+              <Grid item xs={6} sm={3} md={2}>
+                <Paper className={classes.paper}>
+                  <span>
+                    <img src={category.img} alt={category.name} />
+                  </span>
+                  {category.name}
+                </Paper>
+              </Grid>
+            </Link>
+          );
+        })}
       </Grid>
     </div>
   );
