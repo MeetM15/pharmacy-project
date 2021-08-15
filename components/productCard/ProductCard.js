@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
   content: {
     margin: "10px",
-    fontSize: "16px",
+    fontSize: "14px",
     fontWeight: "600",
     fontStyle: "italic"
   }

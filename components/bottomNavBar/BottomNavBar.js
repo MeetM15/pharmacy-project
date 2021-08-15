@@ -18,10 +18,10 @@ const useStyles = makeStyles(() => ({
     right: "0",
     width: "100%",
     zIndex: "10",
-    backgroundColor: "#23CE6B"
+    backgroundColor: "#E6FFE6"
   },
   icons: {
-    backgroundColor: "#23CE6B"
+    backgroundColor: "#E6FFE6"
   }
 }));
 

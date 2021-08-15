@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "Center",
     textAlign: "center",
     justifyContent: "space-between",
-    fontSize: "clamp(16px,2vw,24px)",
+    fontSize: "clamp(14px,4vw,24px)",
     fontWeight: "500",
     height: "100%",
     width: "100%",
@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     "& p": {
       margin: "0",
-      fontSize: "clamp(18px,4vw,28px)",
+      fontSize: "clamp(14px,4.5vw,24px)",
       fontWeight: "bold"
     }
   },
@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-between",
     alignItems: "center",
     color: "#FF4000",
-    fontSize: "18px",
+    fontSize: "clamp(14px,4.5vw,24px)",
     fontWeight: "bold"
   }
 }));
@@ -61,7 +61,7 @@ const CategoryGrid = () => {
         <p>Shop By Categories</p>
         <a href="#" className={classes.viewLink}>
           View All
-          <DoubleArrowIcon size="small" />
+          <DoubleArrowIcon style={{ fontSize: "clamp(18px,5vw,30px)" }} />
         </a>
       </div>
       <Grid container spacing={2}>
@@ -74,7 +74,7 @@ const CategoryGrid = () => {
                 query: { categoryName: `${category.name}` }
               }}
             >
-              <Grid item xs={6} sm={3} md={2}>
+              <Grid item xs={4} sm={3} md={2}>
                 <Paper className={classes.paper}>
                   <span>
                     <img src={category.img} alt={category.name} />

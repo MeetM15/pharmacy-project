@@ -19,13 +19,13 @@ const useStyles = makeStyles(() => ({
     zIndex: "10"
   },
   paper: {
-    backgroundColor: "#23CE6B",
+    backgroundColor: "#E6FFE6",
     color: "black"
   },
   nav_top: {
     display: "flex",
     padding: "0px 10px",
-    height: "45px",
+    height: "40px",
     justifyContent: "space-between",
     alignItems: "center"
   },
@@ -50,7 +50,7 @@ const useStyles = makeStyles(() => ({
   login_btn: {
     display: "flex",
     alignItems: "center",
-    fontSize: "16px"
+    fontSize: "12px"
   }
 }));
 
@@ -79,7 +79,7 @@ const HomeNavBar = () => {
                     variant="contained"
                     size="small"
                     color="primary"
-                    startIcon={<LockOpenIcon />}
+                    startIcon={<LockOpenIcon style={{ fontSize: "14px" }} />}
                     className={classes.login_btn}
                   >
                     Login
