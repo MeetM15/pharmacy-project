@@ -14,6 +14,11 @@ const Layout = ({ children }) => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"
+        />
       </Head>
       <HomeNavBar />
       <div className={css.child}>{children}</div>

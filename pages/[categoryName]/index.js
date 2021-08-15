@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     width: "100%",
     padding: "10px",
-    marginBottom: "80px",
-    backgroundColor: "#F3F3F3"
+    marginBottom: "80px"
   },
   paper: {
     padding: "5px",
@@ -28,18 +27,77 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     borderRadius: "0px",
     "& img": {
-      maxWidth: "160px"
+      maxWidth: "120px"
     }
   },
   heading: {
     margin: "0",
-    backgroundColor: "#F3F3F3",
-    padding: "20px",
+    padding: "15px",
     width: "100%",
-    fontSize: "20px",
+    fontSize: "clamp(14px,5vw,28px)",
     fontWeight: "bold"
+  },
+  content: {
+    display: "flex",
+    alignItems: "flex-start",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    width: "100%",
+    height: "100%",
+    padding: "25px 15px 25px 5px",
+    "& p": {
+      margin: "0"
+    }
+  },
+  name: {
+    display: "flex",
+    alignItems: "Center",
+    fontSize: "clamp(12px,4.5vw,24px)",
+    fontWeight: "bold"
+  },
+  price: {
+    display: "flex",
+    alignItems: "Center",
+    fontSize: "clamp(12px,4vw,24px)"
+  },
+  mrp_wrap: {
+    display: "flex",
+    alignItems: "Center",
+    justifyContent: "space-between",
+    fontSize: "clamp(12px,4vw,24px)",
+    color: "grey"
+  },
+  mrp: {
+    display: "flex",
+    alignItems: "Center",
+    padding: "0px 5px",
+    textDecoration: "line-through",
+    fontSize: "clamp(12px,4vw,24px)"
+  },
+  offer_wrap: {
+    display: "flex",
+    alignItems: "Center",
+    justifyContent: "space-between",
+    fontSize: "clamp(12px,4vw,24px)"
+  },
+  offer: {
+    display: "flex",
+    alignItems: "Center",
+    fontSize: "clamp(12px,4vw,24px)",
+    color: "green"
+  },
+  comp: {
+    display: "flex",
+    alignItems: "Center",
+    fontSize: "clamp(12px,4vw,24px)"
   }
 }));
+const offer = (price, mrp) => {
+  const offerPrice = (((parseInt(mrp) - parseInt(price)) / parseInt(mrp)) * 100)
+    .toString()
+    .slice(0, 4);
+  return offerPrice + "%";
+};
 const ProductList = () => {
   const classes = useStyles();
   const router = useRouter();
@@ -64,7 +122,22 @@ const ProductList = () => {
                       <img src={product.img} alt={product.name} />
                     </span>
                     <span className={classes.content}>
-                      {product.name.slice(0, 20)}
+                      <p className={classes.name}>
+                        {product.name.slice(0, 20)}
+                      </p>
+                      <p className={classes.price}>
+                        {`Best Price : ${product.price} `}&#8377;
+                      </p>
+                      <p className={classes.offer_wrap}>
+                        <p className={classes.mrp_wrap}>
+                          MRP :
+                          <p className={classes.mrp}> {product.mrp} &#8377;</p>
+                        </p>
+                        <p className={classes.offer}>
+                          {offer(product.price, product.mrp)}
+                        </p>
+                      </p>
+                      <p className={classes.comp}>{product.comp}</p>
                     </span>
                   </Paper>
                 </Grid>
