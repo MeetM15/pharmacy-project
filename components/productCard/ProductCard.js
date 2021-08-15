@@ -10,12 +10,12 @@ const useStyles = makeStyles({
     height: "100%"
   },
   media: {
-    height: "40px",
+    maxHeight: "100%",
     margin: "10px"
   },
   content: {
     margin: "10px",
-    fontSize: "14px",
+    fontSize: "12px",
     fontWeight: "600",
     fontStyle: "italic"
   }

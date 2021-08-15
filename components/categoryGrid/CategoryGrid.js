@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "Center",
     textAlign: "center",
     justifyContent: "space-between",
-    fontSize: "clamp(14px,4vw,24px)",
+    fontSize: "clamp(12px,4vw,24px)",
     fontWeight: "500",
     height: "100%",
     width: "100%",
@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     "& p": {
       margin: "0",
-      fontSize: "clamp(14px,4.5vw,24px)",
+      fontSize: "clamp(12px,4vw,24px)",
       fontWeight: "bold"
     }
   },
@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-between",
     alignItems: "center",
     color: "#FF4000",
-    fontSize: "clamp(14px,4.5vw,24px)",
+    fontSize: "clamp(12px,4vw,24px)",
     fontWeight: "bold"
   }
 }));

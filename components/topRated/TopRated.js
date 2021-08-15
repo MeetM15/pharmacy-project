@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: "bold",
     "& p": {
       margin: "0",
-      fontSize: "clamp(14px,4.5vw,24px)"
+      fontSize: "clamp(12px,4.5vw,24px)"
     }
   },
   viewLink: {
@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     width: "120px",
     height: "95%",
-    fontSize: "clamp(16px,2vw,24px)",
+    fontSize: "clamp(14px,2vw,24px)",
     background: "transparent",
     display: "flex",
     justifyContent: "center",
