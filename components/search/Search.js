@@ -6,12 +6,12 @@ import { SearchRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   search: {
-    backgroundColor: "#7FEFBD",
+    backgroundColor: "#23CE6B",
     width: "100%"
   },
   input: {
     height: "40px",
-    backgroundColor: "white"
+    backgroundColor: "#f1f1ff"
   },
   form: {
     width: "100%",

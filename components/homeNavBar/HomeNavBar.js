@@ -19,7 +19,8 @@ const useStyles = makeStyles(() => ({
     zIndex: "10"
   },
   paper: {
-    backgroundColor: "#7FEFBD"
+    backgroundColor: "#23CE6B",
+    color: "black"
   },
   nav_top: {
     display: "flex",

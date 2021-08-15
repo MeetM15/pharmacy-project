@@ -1,11 +1,10 @@
 import Layout from "../../components/layout/Layout";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Link from "next/link";
-
+import { Products } from "../../data/products/Products";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -13,39 +12,44 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     width: "100%",
     padding: "10px",
-    marginBottom: "80px"
+    marginBottom: "80px",
+    backgroundColor: "#F3F3F3"
   },
   paper: {
     padding: "5px",
     display: "flex",
-    flexDirection: "column",
     alignItems: "Center",
     textAlign: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     fontSize: "clamp(16px,2vw,24px)",
     fontWeight: "500",
     height: "100%",
     width: "100%",
     cursor: "pointer",
     borderRadius: "0px",
-    "& span": {
-      margin: "5px",
-      "& img": {
-        maxWidth: "120px"
-      }
+    "& img": {
+      maxWidth: "160px"
     }
+  },
+  heading: {
+    margin: "0",
+    backgroundColor: "#F3F3F3",
+    padding: "20px",
+    width: "100%",
+    fontSize: "20px",
+    fontWeight: "bold"
   }
 }));
-const ProductList = ({ products }) => {
+const ProductList = () => {
   const classes = useStyles();
   const router = useRouter();
   const { categoryName: category } = router.query;
   return (
     <Layout>
-      <h1>{category}</h1>
+      <p className={classes.heading}>{category}</p>
       <div className={classes.root}>
         <Grid container spacing={0}>
-          {products.map((product, index) => {
+          {Products.map((product, index) => {
             return (
               <Link
                 key={index}
@@ -54,17 +58,14 @@ const ProductList = ({ products }) => {
                   query: { categoryName: `${product.id}` }
                 }}
               >
-                <Grid item xs={6} sm={3} md={2}>
+                <Grid item xs={12} sm={6} md={4}>
                   <Paper className={classes.paper}>
-                    <span>
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        width="100px"
-                        height="200px"
-                      />
+                    <span className={classes.image}>
+                      <img src={product.img} alt={product.name} />
                     </span>
-                    {product.title.slice(0, 20)}
+                    <span className={classes.content}>
+                      {product.name.slice(0, 20)}
+                    </span>
                   </Paper>
                 </Grid>
               </Link>
@@ -76,13 +77,12 @@ const ProductList = ({ products }) => {
   );
 };
 export default ProductList;
-
-export const getServerSideProps = async (context) => {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products = await res.json();
-  return {
-    props: {
-      products
-    }
-  };
-};
+// export const getServerSideProps = async (context) => {
+//   const res = await fetch("../../data/products/Products");
+//   const products = await res.json();
+//   return {
+//     props: {
+//       products
+//     }
+//   };
+// };

@@ -17,10 +17,11 @@ const useStyles = makeStyles(() => ({
     left: "0",
     right: "0",
     width: "100%",
-    zIndex: "10"
+    zIndex: "10",
+    backgroundColor: "#23CE6B"
   },
-  icon: {
-    backgroundColor: "#7FEFBD"
+  icons: {
+    backgroundColor: "#23CE6B"
   }
 }));
 
@@ -37,7 +38,7 @@ const BottomNavBar = () => {
         <BottomNavigation showLabels value={menuValue} onChange={handleChange}>
           <Link href="/">
             <BottomNavigationAction
-              className={classes.icon}
+              className={classes.icons}
               label="Categories"
               showLabel={true}
               icon={<AppsRoundedIcon style={{ color: "black" }} />}
@@ -45,7 +46,7 @@ const BottomNavBar = () => {
           </Link>
           <Link href="/">
             <BottomNavigationAction
-              className={classes.icon}
+              className={classes.icons}
               label="Home"
               showLabel={true}
               icon={<HomeRoundedIcon style={{ color: "black" }} />}
@@ -53,7 +54,7 @@ const BottomNavBar = () => {
           </Link>
           <Link href="/">
             <BottomNavigationAction
-              className={classes.icon}
+              className={classes.icons}
               label="Menu"
               showLabel={true}
               icon={<MenuRoundedIcon style={{ color: "black" }} />}
