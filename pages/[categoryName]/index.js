@@ -4,7 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Link from "next/link";
+import Button from "@material-ui/core/Button";
 import { Products } from "../../data/products/Products";
+import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounded";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     cursor: "pointer",
     borderRadius: "0px",
+    position: "relative",
     "& img": {
       maxWidth: "120px"
     }
@@ -80,16 +83,39 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     fontSize: "clamp(12px,4vw,24px)"
   },
-  offer: {
-    display: "flex",
-    alignItems: "Center",
-    fontSize: "clamp(12px,4vw,24px)",
-    color: "green"
-  },
   comp: {
     display: "flex",
     alignItems: "Center",
     fontSize: "clamp(12px,4vw,24px)"
+  },
+  offer_badge: {
+    position: "absolute",
+    display: "flex",
+    alignItems: "Center",
+    justifyContent: "center",
+    right: 0,
+    top: "6px",
+    backgroundColor: "#289628",
+    fontSize: "clamp(12px,3.5vw,24px)",
+    width: "80px",
+    height: "24px",
+    padding: "5px"
+  },
+  add_cart: {
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
+    height: "100%"
+  },
+  add_btn: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: "24px",
+    fontSize: "clamp(12px,3.5vw,24px)"
+  },
+  add_icon: {
+    fontSize: "clamp(18px,6vw,28px)"
   }
 }));
 const offer = (price, mrp) => {
@@ -112,12 +138,18 @@ const ProductList = () => {
               <Link
                 key={index}
                 href={{
-                  pathname: `/${product.id}`,
-                  query: { categoryName: `${product.id}` }
+                  pathname: `/${category.name}/${product.name}`,
+                  query: {
+                    categoryName: `${category.name}`,
+                    productID: `${product.name}`
+                  }
                 }}
               >
                 <Grid item xs={12} sm={6} md={4}>
                   <Paper className={classes.paper}>
+                    <span className={classes.offer_badge}>
+                      {offer(product.price, product.mrp)} OFF
+                    </span>
                     <span className={classes.image}>
                       <img src={product.img} alt={product.name} />
                     </span>
@@ -128,16 +160,24 @@ const ProductList = () => {
                       <p className={classes.price}>
                         {`Best Price : ${product.price} `}&#8377;
                       </p>
-                      <p className={classes.offer_wrap}>
-                        <p className={classes.mrp_wrap}>
-                          MRP :
-                          <p className={classes.mrp}> {product.mrp} &#8377;</p>
-                        </p>
-                        <p className={classes.offer}>
-                          {offer(product.price, product.mrp)}
-                        </p>
+                      <p className={classes.mrp_wrap}>
+                        MRP :
+                        <p className={classes.mrp}> {product.mrp} &#8377;</p>
                       </p>
                       <p className={classes.comp}>{product.comp}</p>
+                    </span>
+                    <span className={classes.add_cart}>
+                      <Button
+                        variant="contained"
+                        component="span"
+                        size="small"
+                        color="primary"
+                        className={classes.add_btn}
+                      >
+                        <AddShoppingCartRoundedIcon
+                          className={classes.add_icon}
+                        />
+                      </Button>
                     </span>
                   </Paper>
                 </Grid>
