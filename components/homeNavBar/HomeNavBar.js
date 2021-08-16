@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button, makeStyles, Paper } from "@material-ui/core";
-import { AccountCircleIcon } from "@material-ui/icons";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import Search from "../search/Search";
