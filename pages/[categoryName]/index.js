@@ -138,9 +138,9 @@ const ProductList = () => {
               <Link
                 key={index}
                 href={{
-                  pathname: `/${category.name}/${product.name}`,
+                  pathname: `/${category}/${product.name}`,
                   query: {
-                    categoryName: `${category.name}`,
+                    categoryName: `${category}`,
                     productID: `${product.name}`
                   }
                 }}
