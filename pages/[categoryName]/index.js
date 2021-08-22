@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     width: "100%",
     padding: "10px",
-    marginBottom: "80px"
+    marginBottom: "80px",
   },
   paper: {
     padding: "5px",
@@ -30,15 +30,15 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "0px",
     position: "relative",
     "& img": {
-      maxWidth: "120px"
-    }
+      maxWidth: "120px",
+    },
   },
   heading: {
     margin: "0",
     padding: "15px",
     width: "100%",
     fontSize: "clamp(14px,5vw,28px)",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   content: {
     display: "flex",
@@ -49,44 +49,44 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     padding: "25px 15px 25px 5px",
     "& p": {
-      margin: "0"
-    }
+      margin: "0",
+    },
   },
   name: {
     display: "flex",
     alignItems: "Center",
     fontSize: "clamp(12px,4.5vw,24px)",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   price: {
     display: "flex",
     alignItems: "Center",
-    fontSize: "clamp(12px,4vw,24px)"
+    fontSize: "clamp(12px,4vw,24px)",
   },
   mrp_wrap: {
     display: "flex",
     alignItems: "Center",
     justifyContent: "space-between",
     fontSize: "clamp(12px,4vw,24px)",
-    color: "grey"
+    color: "grey",
   },
   mrp: {
     display: "flex",
     alignItems: "Center",
     padding: "0px 5px",
     textDecoration: "line-through",
-    fontSize: "clamp(12px,4vw,24px)"
+    fontSize: "clamp(12px,4vw,24px)",
   },
   offer_wrap: {
     display: "flex",
     alignItems: "Center",
     justifyContent: "space-between",
-    fontSize: "clamp(12px,4vw,24px)"
+    fontSize: "clamp(12px,4vw,24px)",
   },
   comp: {
     display: "flex",
     alignItems: "Center",
-    fontSize: "clamp(12px,4vw,24px)"
+    fontSize: "clamp(12px,4vw,24px)",
   },
   offer_badge: {
     position: "absolute",
@@ -99,24 +99,24 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "clamp(12px,3.5vw,24px)",
     width: "80px",
     height: "24px",
-    padding: "5px"
+    padding: "5px",
   },
   add_cart: {
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
-    height: "100%"
+    height: "100%",
   },
   add_btn: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "24px",
-    fontSize: "clamp(12px,3.5vw,24px)"
+    fontSize: "clamp(12px,3.5vw,24px)",
   },
   add_icon: {
-    fontSize: "clamp(18px,6vw,28px)"
-  }
+    fontSize: "clamp(18px,6vw,28px)",
+  },
 }));
 const offer = (price, mrp) => {
   const offerPrice = (((parseInt(mrp) - parseInt(price)) / parseInt(mrp)) * 100)
@@ -135,24 +135,34 @@ const ProductList = () => {
         <Grid container spacing={0}>
           {Products.map((product, index) => {
             return (
-              <Link
-                key={index}
-                href={{
-                  pathname: `/${category}/${product.name}`,
-                  query: {
-                    categoryName: `${category}`,
-                    productID: `${product.name}`
-                  }
-                }}
-              >
-                <Grid item xs={12} sm={6} md={4}>
-                  <Paper className={classes.paper}>
-                    <span className={classes.offer_badge}>
-                      {offer(product.price, product.mrp)} OFF
-                    </span>
+              <Grid key={index} item xs={12} sm={6} md={4}>
+                <Paper className={classes.paper}>
+                  <span className={classes.offer_badge}>
+                    {offer(product.price, product.mrp)} OFF
+                  </span>
+                  <Link
+                    href={{
+                      pathname: `/${category}/${product.name}`,
+                      query: {
+                        categoryName: `${category}`,
+                        productID: `${product.name}`,
+                      },
+                    }}
+                  >
                     <span className={classes.image}>
                       <img src={product.img} alt={product.name} />
                     </span>
+                  </Link>
+                  <Link
+                    key={index}
+                    href={{
+                      pathname: `/${category}/${product.name}`,
+                      query: {
+                        categoryName: `${category}`,
+                        productID: `${product.name}`,
+                      },
+                    }}
+                  >
                     <span className={classes.content}>
                       <p className={classes.name}>
                         {product.name.slice(0, 20)}
@@ -166,22 +176,22 @@ const ProductList = () => {
                       </p>
                       <p className={classes.comp}>{product.comp}</p>
                     </span>
-                    <span className={classes.add_cart}>
-                      <Button
-                        variant="contained"
-                        component="span"
-                        size="small"
-                        color="primary"
-                        className={classes.add_btn}
-                      >
-                        <AddShoppingCartRoundedIcon
-                          className={classes.add_icon}
-                        />
-                      </Button>
-                    </span>
-                  </Paper>
-                </Grid>
-              </Link>
+                  </Link>
+                  <span className={classes.add_cart}>
+                    <Button
+                      variant="contained"
+                      component="span"
+                      size="small"
+                      color="primary"
+                      className={classes.add_btn}
+                    >
+                      <AddShoppingCartRoundedIcon
+                        className={classes.add_icon}
+                      />
+                    </Button>
+                  </span>
+                </Paper>
+              </Grid>
             );
           })}
         </Grid>

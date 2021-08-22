@@ -1,0 +1,22 @@
+export const BannerImg = [
+  {
+    img:
+      "https://www.netmeds.com/images/cms/aw_rbslider/slides/1627963197_Mobile_Push-freeshipping.jpg"
+  },
+  {
+    img:
+      "https://www.netmeds.com/images/cms/aw_rbslider/slides/1627963667_mobsup100.jpg"
+  },
+  {
+    img:
+      "https://www.netmeds.com/images/cms/offers/1628855233_Mobile_home-nms100.jpg"
+  },
+  {
+    img:
+      "https://www.netmeds.com/images/cms/aw_rbslider/slides/1628610190_lanconin.jpg"
+  },
+  {
+    img:
+      "https://www.netmeds.com/images/cms/aw_rbslider/slides/1627962625_Mobile_Push.jpg"
+  }
+];
