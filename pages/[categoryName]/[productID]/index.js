@@ -1,7 +1,9 @@
 import Layout from "../../../components/layout/Layout";
 import { useRouter } from "next/router";
 import { makeStyles } from "@material-ui/core/styles";
+import { Products } from "../../../data/products/Products";
 import Paper from "@material-ui/core/Paper";
+import { Button } from "@material-ui/core";
 const offer = (price, mrp) => {
   const offerPrice = (((parseInt(mrp) - parseInt(price)) / parseInt(mrp)) * 100)
     .toString()
@@ -9,122 +11,156 @@ const offer = (price, mrp) => {
   return offerPrice + "%";
 };
 const useStyles = makeStyles((theme) => ({
-  mainDiv: {
-    border: "1px solid black",
-    padding: "5px",
+  productDiv: {
     display: "flex",
     flexDirection: "column",
     alignItems: "Left",
     justifyContent: "flex-start",
-    fontSize: "clamp(16px,2vw,24px)",
-    fontWeight: "500",
+    fontSize: "clamp(16px,2vw,18px)",
     height: "100%",
-    width: "99%",
-    cursor: "pointer",
-    borderRadius: "5px",
-    // "& img": {
-    //   maxWidth: "120px"
-    // }
+    width: "95%",
+    padding: "15px",
+    margin: "8px 0px",
   },
-  priceSpan: {
+  deliveryDiv: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "Left",
+    justifyContent: "flex-start",
+    fontSize: "clamp(16px,2vw,18px)",
+    height: "100%",
+    width: "95%",
+    padding: "15px",
+    margin: "8px 0px",
+  },
+  sellerDiv: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "Left",
+    justifyContent: "flex-start",
+    fontSize: "clamp(16px,2vw,18px)",
+    height: "100%",
+    width: "95%",
+    padding: "15px",
+    margin: "8px 0px",
+  },
+  descDiv: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "Left",
+    justifyContent: "flex-start",
+    fontSize: "clamp(16px,2vw,18px)",
+    height: "100%",
+    width: "95%",
+    padding: "15px",
+    margin: "8px 0px",
+    marginBottom: "80px",
+  },
+  priceSpanWrap: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  img: {
+    maxWidth: "350px",
+  },
+  head: {
+    padding: "5px",
+    fontSize: "clamp(12px,4vw,18px)",
+    textAlign: "center",
+  },
+  cartBtn: {
+    display: "flex",
+    width: "100%",
+    padding: "5px",
+    borderRadius: "5px",
+    fontWeight: "bold",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  detailsWrap: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  priceSpan: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  mrpWrap: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "start",
+    alignItems: "center",
+    padding: "5px",
+    width: "100%",
+  },
+  sellingPrice: {
+    fontSize: "clamp(12px,3.5vw,18px)",
+    marginRight: "10px",
+  },
+  mrp: {
+    color: "#e0e0e0",
+    fontSize: "clamp(12px,3.5vw,18px)",
+  },
+  offer: {
+    display: "flex",
+    width: "30%",
+    fontSize: "clamp(12px,4vw,18px)",
+    padding: "5px",
+    border: "1px solid green",
+    borderRadius: "5px",
   },
 }));
-const ProductList = ({ product }) => {
+const ProductList = () => {
   const classes = useStyles();
+  const router = useRouter();
+  const { productID: productName } = router.query;
+  const product = Products.find((product) => product.name === productName);
   return (
     <Layout>
-      <h1>{product.name}</h1>
       <div>
-        <img
-          src={product.img}
-          alt={product.name}
-          width="350px"
-          height="150px"
-        />
+        <img src={product.img} alt={product.name} className={classes.img} />
       </div>
 
-      <div className={classes.mainDiv} style={{ marginTop: "10px" }}>
-        <span style={{ marginTop: "10px", marginBottom: "15px" }}>
-          <span
-            style={{ padding: "15px", fontSize: "18px", marginBottom: "15px" }}
-          >
-            {product.name}
-          </span>
-        </span>
-        <span>
-          <span className={classes.priceSpan}>
-            <span
-              style={{ display: "flex", flexDirection: "column", width: "60%" }}
-            >
-              <span>
-                <span style={{ padding: "15px" }}>
-                  <span style={{ fontSize: "16px" }}>{product.price}</span>
-                  <strike style={{ color: "#e0e0e0", fontSize: "12px" }}>
-                    {product.mrp}
-                  </strike>
+      <Paper elevation={3} className={classes.productDiv}>
+        <span className={classes.head}>{product.name}</span>
+        <span className={classes.detailsWrap}>
+          <span className={classes.priceSpanWrap}>
+            <span className={classes.priceSpan}>
+              <span className={classes.mrpWrap}>
+                <span className={classes.sellingPrice}>
+                  {`Best Price : ${product.price} `}&#8377;
                 </span>
+                <strike className={classes.mrp}>{product.mrp} &#8377;</strike>
               </span>
-              <span>
-                <span style={{ padding: "15px", fontSize: "12px" }}>
-                  Inclusive of all taxes
-                </span>
+              <span style={{ padding: "5px", fontSize: "12px", width: "100%" }}>
+                Inclusive of all taxes
               </span>
             </span>
-            <span
-              style={{
-                display: "flex",
-                width: "40%",
-                padding: "10px",
-                border: "1px solid green",
-                borderRadius: "5px",
-              }}
-            >
+            <span className={classes.offer}>
               {offer(product.price, product.mrp)} OFF
             </span>
           </span>
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            className={classes.cartBtn}
+          >
+            ADD TO CART
+          </Button>
         </span>
-        <span style={{ marginTop: "10px" }}>
-          <span className={classes.priceSpan}>
-            <span
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "60%",
-                padding: "15px",
-              }}
-            >
-              <span>
-                <span>
-                  <span style={{ fontSize: "12px" }}>
-                    Country of Origin : INDIA{" "}
-                  </span>
-                </span>
-              </span>
-              <span>
-                <span style={{ fontSize: "12px" }}>Seller information</span>
-              </span>
-            </span>
-            <span
-              style={{
-                display: "flex",
-                width: "40%",
-                padding: "10px",
-                background: "#a63d3d",
-                borderRadius: "5px",
-                color: "white",
-                fontWeight: "bold",
-              }}
-            >
-              ADD TO CART
-            </span>
-          </span>
-        </span>
-      </div>
+      </Paper>
 
-      <div className={classes.mainDiv} style={{ marginTop: "15px" }}>
+      <Paper className={classes.deliveryDiv}>
         <span
           style={{
             display: "flex",
@@ -134,20 +170,19 @@ const ProductList = ({ product }) => {
             padding: "5px",
           }}
         >
-          <span style={{ fontSize: "16px", marginBottom: "15px" }}>
+          <span style={{ marginBottom: "15px" }}>
             Delivery Option : Cash on delivery
           </span>
-          <span style={{ fontSize: "15px", fontWeight: "bold" }}>
-            Delivery By August 20, 2021
+          <span style={{ fontWeight: "bold" }}>
+            Delivery By August 31, 2021
           </span>
         </span>
-      </div>
+      </Paper>
 
-      <div className={classes.mainDiv} style={{ marginTop: "15px" }}>
+      <Paper className={classes.sellerDiv} style={{ marginTop: "15px" }}>
         <span style={{ display: "flex" }}>
           <span
             style={{
-              fontSize: "18px",
               marginBottom: "5px",
               paddingLeft: "15px",
             }}
@@ -166,9 +201,7 @@ const ProductList = ({ product }) => {
         >
           <span>
             <span style={{ padding: "15px" }}>
-              <span style={{ color: "#5e5e5e", fontSize: "15px" }}>
-                Manufactured By:
-              </span>
+              <span style={{ color: "#5e5e5e" }}>Manufactured By:</span>
             </span>
           </span>
           <span
@@ -178,10 +211,8 @@ const ProductList = ({ product }) => {
               paddingTop: "5px",
             }}
           >
-            <span style={{ paddingLeft: "15px", fontSize: "17px" }}>
-              ABC Firm
-            </span>
-            <span style={{ paddingLeft: "15px", fontSize: "14px" }}>
+            <span style={{ paddingLeft: "15px" }}>ABC Firm</span>
+            <span style={{ paddingLeft: "15px" }}>
               hootagalli,mysuru 570018
             </span>
           </span>
@@ -196,9 +227,7 @@ const ProductList = ({ product }) => {
         >
           <span>
             <span style={{ padding: "15px" }}>
-              <span style={{ color: "#5e5e5e", fontSize: "15px" }}>
-                Packed By:
-              </span>
+              <span style={{ color: "#5e5e5e" }}>Packed By:</span>
             </span>
           </span>
           <span
@@ -208,17 +237,15 @@ const ProductList = ({ product }) => {
               paddingTop: "5px",
             }}
           >
-            <span style={{ paddingLeft: "15px", fontSize: "17px" }}>
-              DEF Firm
-            </span>
-            <span style={{ paddingLeft: "15px", fontSize: "14px" }}>
+            <span style={{ paddingLeft: "15px" }}>DEF Firm</span>
+            <span style={{ paddingLeft: "15px" }}>
               hootagalli,mysuru 570018
             </span>
           </span>
         </span>
-      </div>
+      </Paper>
 
-      <div className={classes.mainDiv} style={{ marginTop: "15px" }}>
+      <Paper className={classes.descDiv} style={{ marginTop: "15px" }}>
         <span
           style={{
             display: "flex",
@@ -228,15 +255,11 @@ const ProductList = ({ product }) => {
             borderBottom: "2px solid green",
           }}
         >
-          <span style={{ fontSize: "18px", marginBottom: "5px" }}>
-            {" "}
-            Description{" "}
-          </span>
+          <span style={{ marginBottom: "5px" }}> Description </span>
         </span>
         <span
           style={{
             padding: "10px",
-            fontSize: "12px",
             textAlign: "justify",
             color: "#000",
             marginTop: "10px",
@@ -254,7 +277,6 @@ const ProductList = ({ product }) => {
         <span
           style={{
             padding: "10px",
-            fontSize: "12px",
             textAlign: "justify",
             color: "#000",
             marginTop: "5px",
@@ -268,21 +290,8 @@ const ProductList = ({ product }) => {
           unchanged. It was popularised in the 1960s with the release of
           Letraset sheets containing
         </span>
-      </div>
+      </Paper>
     </Layout>
   );
 };
 export default ProductList;
-export const getServerSideProps = async (context) => {
-  const { productID: productName } = context.query;
-  const res = await fetch("../../data/products/Products");
-  const products = await res.json();
-  const singleProduct = products.filter(
-    (product) => product.name == productName
-  );
-  return {
-    props: {
-      product: singleProduct,
-    },
-  };
-};

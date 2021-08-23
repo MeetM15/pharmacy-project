@@ -16,18 +16,18 @@ const useStyles = makeStyles(() => ({
     left: "0",
     right: "0",
     width: "100%",
-    zIndex: "10"
+    zIndex: "10",
   },
   paper: {
-    backgroundColor: "#BAFFEA",
-    color: "black"
+    backgroundColor: "white",
+    color: "black",
   },
   nav_top: {
     display: "flex",
     padding: "0px 10px",
     height: "40px",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   logo: {
     margin: "0",
@@ -36,22 +36,22 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     fontSize: "18px",
     fontWeight: "600",
-    cursor: "pointer"
+    cursor: "pointer",
   },
   icons: {
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
   search_bar: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   login_btn: {
     display: "flex",
     alignItems: "center",
-    fontSize: "12px"
-  }
+    fontSize: "12px",
+  },
 }));
 
 const HomeNavBar = () => {
@@ -88,9 +88,11 @@ const HomeNavBar = () => {
               )}
             </div>
             <div className={classes.cart}>
-              <Button>
-                <ShoppingCartOutlined style={{ color: "black" }} />
-              </Button>
+              <Link href="/cart">
+                <Button>
+                  <ShoppingCartOutlined style={{ color: "black" }} />
+                </Button>
+              </Link>
             </div>
           </article>
         </section>

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "Center",
     textAlign: "center",
     justifyContent: "flex-start",
-    fontSize: "clamp(16px,2vw,24px)",
+    fontSize: "clamp(16px,2vw,18px)",
     fontWeight: "500",
     height: "100%",
     width: "100%",
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0",
     padding: "15px",
     width: "100%",
-    fontSize: "clamp(14px,5vw,28px)",
+    fontSize: "clamp(14px,5vw,18px)",
     fontWeight: "bold",
   },
   content: {
@@ -55,19 +55,19 @@ const useStyles = makeStyles((theme) => ({
   name: {
     display: "flex",
     alignItems: "Center",
-    fontSize: "clamp(12px,4.5vw,24px)",
+    fontSize: "clamp(12px,4.5vw,18px)",
     fontWeight: "bold",
   },
   price: {
     display: "flex",
     alignItems: "Center",
-    fontSize: "clamp(12px,4vw,24px)",
+    fontSize: "clamp(12px,4vw,18px)",
   },
   mrp_wrap: {
     display: "flex",
     alignItems: "Center",
     justifyContent: "space-between",
-    fontSize: "clamp(12px,4vw,24px)",
+    fontSize: "clamp(12px,4vw,18px)",
     color: "grey",
   },
   mrp: {
@@ -75,18 +75,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "Center",
     padding: "0px 5px",
     textDecoration: "line-through",
-    fontSize: "clamp(12px,4vw,24px)",
+    fontSize: "clamp(12px,4vw,18px)",
   },
   offer_wrap: {
     display: "flex",
     alignItems: "Center",
     justifyContent: "space-between",
-    fontSize: "clamp(12px,4vw,24px)",
+    fontSize: "clamp(12px,4vw,18px)",
   },
   comp: {
     display: "flex",
     alignItems: "Center",
-    fontSize: "clamp(12px,4vw,24px)",
+    fontSize: "clamp(12px,4vw,18px)",
   },
   offer_badge: {
     position: "absolute",
@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: "6px",
     backgroundColor: "#289628",
-    fontSize: "clamp(12px,3.5vw,24px)",
+    fontSize: "clamp(12px,3.5vw,18px)",
     width: "80px",
     height: "24px",
     padding: "5px",
@@ -112,10 +112,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "24px",
-    fontSize: "clamp(12px,3.5vw,24px)",
+    fontSize: "clamp(12px,3.5vw,18px)",
   },
   add_icon: {
-    fontSize: "clamp(18px,6vw,28px)",
+    fontSize: "clamp(18px,6vw,18px)",
   },
 }));
 const offer = (price, mrp) => {
